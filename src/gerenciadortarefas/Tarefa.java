@@ -49,9 +49,9 @@ public class Tarefa {
 	@Override 
 	public String toString() {// método toString é sobrescrito para fornecer uma representação em formato de string da tarefa, facilitando a exibição das informações da tarefa de forma legível.
 		return "Título: "+ titulo + 
-		"| Descrição: "+ descricao + 
-		"| Data Limite: " + dataLimite + 
-		"| Status: ["+ status +"]"; // retorna uma string formatada com as informações da tarefa, incluindo o título, descrição, data limite e status.
+		" | Descrição: "+ descricao + 
+		" | Data Limite: " + dataLimite + 
+		" | Status: ["+ status +"]"; // retorna uma string formatada com as informações da tarefa, incluindo o título, descrição, data limite e status.
 		
 	}
 }
