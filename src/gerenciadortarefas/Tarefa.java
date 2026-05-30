@@ -1,14 +1,15 @@
 package gerenciadortarefas;
+import java.time.LocalDate;
 
 public class Tarefa {
 	
 	// Atributos: características que uma tarefa tem
 	private String titulo; // título da tarefa
 	private String descricao; // descrição da tarefa
-	private int dataLimite; // data limite para a conclusão da tarefa, representada como um número inteiro
+	private LocalDate dataLimite; 
 	private String status;// status da tarefa, que pode ser "Pendente", "Concluída" ou "Em andamento"
-	
-	public Tarefa(String titulo, String descricao, int dataLimite, String status) { // construtor da classe Tarefa, que é um método especial usado para criar objetos da classe. Ele recebe quatro parâmetros: titulo, descricao, dataLimite e status.
+
+	public Tarefa(String titulo, String descricao, LocalDate dataLimite, String status) { // construtor da classe Tarefa, que é um método especial usado para criar objetos da classe. Ele recebe quatro parâmetros: titulo, descricao, dataLimite e status.
 		this.titulo = titulo; // o "this" é usado para se referir ao atributo da classe, diferenciando-o do parâmetro do construtor. Ele atribui o valor do parâmetro titulo ao atributo titulo da classe.
 		this.descricao = descricao; // atribui o valor do parâmetro descricao ao atributo descricao da classe.
 		this.dataLimite = dataLimite; // atribui o valor do parâmetro dataLimite ao atributo dataLimite da classe.
@@ -23,7 +24,7 @@ public class Tarefa {
 		return descricao;// retorna o valor do atributo descricao da tarefa.
 	}
 	
-	public int getDataLimite () {// método get para a data limite da tarefa, que é usado para acessar o valor do atributo dataLimite de um objeto da classe Tarefa.
+	public LocalDate getDataLimite () {// método get para a data limite da tarefa, que é usado para acessar o valor do atributo dataLimite de um objeto da classe Tarefa.
 		return dataLimite;// retorna o valor do atributo dataLimite da tarefa.
 	}
 	
@@ -37,16 +38,20 @@ public class Tarefa {
 	public void setDescricao(String descricao) {// método set para a descrição da tarefa, que é usado para atualizar o valor do atributo descricao de um objeto da classe Tarefa.
 		this.descricao = descricao;// atribui o valor do parâmetro descricao ao atributo descricao da classe, permitindo que a descrição da tarefa seja atualizada.
 	}
-	public void setDataLimite(int dataLimite) {// método set para a data limite da tarefa, que é usado para atualizar o valor do atributo dataLimite de um objeto da classe Tarefa.
+	public void setDataLimite(LocalDate dataLimite) {// método set para a data limite da tarefa, que é usado para atualizar o valor do atributo dataLimite de um objeto da classe Tarefa.
 		this.dataLimite = dataLimite;// atribui o valor do parâmetro dataLimite ao atributo dataLimite da classe, permitindo que a data limite da tarefa seja atualizada.
 	}
 	public void setStatus(String status) {// método set para o status da tarefa, que é usado para atualizar o valor do atributo status de um objeto da classe Tarefa.
 		this.status = status;// atribui o valor do parâmetro status ao atributo status da classe, permitindo que o status da tarefa seja atualizado.
 	}
+
 	// sobrescrevendo corretamente um metodo da classe pai
 	@Override 
 	public String toString() {// método toString é sobrescrito para fornecer uma representação em formato de string da tarefa, facilitando a exibição das informações da tarefa de forma legível.
-		return "titulo: "+ titulo + "| Descrição: "+ descricao + "| Data: " + dataLimite + "| Status: ["+ status +"]"; // retorna uma string formatada com as informações da tarefa, incluindo o título, descrição, data limite e status.
+		return "Título: "+ titulo + 
+		"| Descrição: "+ descricao + 
+		"| Data Limite: " + dataLimite + 
+		"| Status: ["+ status +"]"; // retorna uma string formatada com as informações da tarefa, incluindo o título, descrição, data limite e status.
 		
 	}
 }
