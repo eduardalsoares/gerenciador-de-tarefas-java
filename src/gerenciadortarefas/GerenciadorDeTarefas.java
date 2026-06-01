@@ -61,7 +61,7 @@ public class GerenciadorDeTarefas {
     private Tarefa buscarPorTitulo(String titulo) { // método para buscar uma tarefa pelo título, que é usado para evitar a criação de tarefas com títulos duplicados e para localizar tarefas para edição, exclusão ou alteração de status.
         for (Tarefa t : listaDeTarefas) { // percorre a lista de tarefas usando um loop for-each, onde cada tarefa é representada pela variável t do tipo Tarefa.
             if (t.getTitulo().trim().equalsIgnoreCase(titulo.trim())) { // compara o título da tarefa atual (t.getTitulo()) com o título buscado (titulo) usando o método equalsIgnoreCase para ignorar diferenças de maiúsculas e minúsculas, e o método trim para remover espaços em branco no início e no final. Se os títulos forem iguais, o programa entra aqui para retornar a tarefa encontrada.
-                return t;
+                return t; //retorna a tarefa encontrada
             }
     }
     return null; // se o loop terminar sem encontrar uma tarefa com o título buscado, o método retorna null para indicar que a tarefa não foi encontrada. Isso é útil para os métodos de cadastro, edição, exclusão e alteração de status para verificar se a tarefa existe antes de realizar a ação desejada.
@@ -187,13 +187,21 @@ public class GerenciadorDeTarefas {
                     String novoStatus = entrada.nextLine().trim();
 
                     if (novoStatus.equalsIgnoreCase("Pendente")) {
-                    encontrada.setStatus("Pendente");
+                        encontrada.setStatus("Pendente");
                         System.out.println("Status atualizado com sucesso!");
-                    } else if (novoStatus.equalsIgnoreCase ("Concluida")) {
-                        encontrada.setStatus("Concluida"); // atualiza o status da tarefa encontrada usando o método setStatus da classe Tarefa
-                        System.out.println("Status atualizado com sucesso!");
-                    } else {
-                        System.out.println("Status inválido! Use Pendente ou Concluída.");
+
+                    } 
+                    else if (novoStatus.equalsIgnoreCase("Concluida") || 
+                         novoStatus.equalsIgnoreCase("Concluída") || 
+                         novoStatus.equalsIgnoreCase("Concluido") || 
+                         novoStatus.equalsIgnoreCase("Concluído")) {
+
+                    encontrada.setStatus("Concluida"); // atualiza o status da tarefa encontrada usando o método setStatus da classe Tarefa
+                    System.out.println("Status atualizado com sucesso!");
+
+                         }else{
+                        System.out.println("Status inválido! Use Pendente ou Concluída.");                                      
+                     
                     } 
                 }
             }
@@ -202,7 +210,7 @@ public class GerenciadorDeTarefas {
     }
 
     public void editar(Scanner entrada) { // método para editar uma tarefa, que é usado para modificar os detalhes de uma tarefa existente, como título, descrição ou data limite, permitindo que o usuário mantenha suas tarefas atualizadas e corrigir informações conforme necessário.
-        do {
+        do { //
             System.out.println("--------- Edição de Tarefas ---------");
             if (listaDeTarefas.isEmpty()) { // pergunta se a lista de tarefas está vazia
                 System.out.println("Não há tarefas para editar"); // se a lista estiver vazia, informa ao usuário que não há tarefas para editar
@@ -225,13 +233,13 @@ public class GerenciadorDeTarefas {
                     int opcEditar = entrada.nextInt();
                     entrada.nextLine(); // Limpa o buffer do scanner
 
-                    switch (opcEditar) {
-                        case 1 -> {
-                            while (true) {
+                    switch (opcEditar) { // estrutura de controle para multiplas opções de edição.
+                        case 1 -> { // se a opção escolhida for 1
+                            while (true) { //Loop - digite um titulo válido ou volte ao menu
                                 System.out.print("Digite o novo título: ");
                                 String novoTitulo = entrada.nextLine().trim();
 
-                                if (buscarPorTitulo(novoTitulo) != null) {
+                                if (buscarPorTitulo(novoTitulo) != null) { 
                                     System.out.println("Já existe uma tarefa com esse título!");
                                 } else {
                                     encontrada.setTitulo(novoTitulo); // atualiza o título da tarefa encontrada usando o método setTitulo da classe Tarefa
@@ -241,7 +249,7 @@ public class GerenciadorDeTarefas {
                             }
                         }
 
-                        case 2 -> {
+                        case 2 -> { 
                             System.out.print("Digite a nova descrição: ");
                             String novaDescricao = entrada.nextLine().trim();
                             encontrada.setDescricao(novaDescricao);

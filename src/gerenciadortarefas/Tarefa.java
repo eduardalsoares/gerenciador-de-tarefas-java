@@ -10,7 +10,7 @@ public class Tarefa {
 	private String status;// status da tarefa, que pode ser "Pendente", "Concluída" ou "Em andamento"
 
 	public Tarefa(String titulo, String descricao, LocalDate dataLimite, String status) { // construtor da classe Tarefa, que é um método especial usado para criar objetos da classe. Ele recebe quatro parâmetros: titulo, descricao, dataLimite e status.
-		this.titulo = titulo; // o "this" é usado para se referir ao atributo da classe, diferenciando-o do parâmetro do construtor. Ele atribui o valor do parâmetro titulo ao atributo titulo da classe.
+		this.titulo = titulo; // o "this" é usado para se referir ao atributo da classe. Ele atribui o valor do parâmetro titulo ao atributo titulo da classe.
 		this.descricao = descricao; // atribui o valor do parâmetro descricao ao atributo descricao da classe.
 		this.dataLimite = dataLimite; // atribui o valor do parâmetro dataLimite ao atributo dataLimite da classe.
 		this.status = status; // atribui o valor do parâmetro status ao atributo status da classe.
